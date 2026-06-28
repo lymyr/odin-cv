@@ -70,15 +70,21 @@ fieldset {
     margin: auto;
 }
 
+fieldset .field-button {
+    margin: 0;
+    margin-left: auto;
+}
+
 @media screen and (min-width: 600px) {
     fieldset:not(:has(.input-wrapper)) > *:not(legend) {
         margin-left: calc(var(--input-wrapper-gap) + var(--del-button-size));
     }
-    fieldset {
-        max-width: 100%;
-    }
 
     .input-label {
         max-width: 500px;
+    }
+
+    fieldset .field-button {
+        margin: auto
     }
 }
