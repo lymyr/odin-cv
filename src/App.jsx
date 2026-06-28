@@ -16,7 +16,7 @@ function App() {
               studyDate: null
           }
       ],
-      experience: "none"
+      experience: []
   });
 
   return (

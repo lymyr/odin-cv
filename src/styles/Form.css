@@ -3,4 +3,35 @@ form {
     flex-direction: column;
     gap: var(--form-gap);
     padding: 32px var(--inline-space);
+
+    --del-color: red;
+    --del-button-size: 32px;
+}
+
+.input-wrapper {
+    display:grid;
+    grid-template-columns: var(--del-button-size) 100%;
+    gap: 24px;
+    align-items: center;
+}
+
+.input-wrapper > div {
+    grid-column: 2/3;
+}
+
+.input-wrapper > button {
+    height: var(--del-button-size);
+    background-color: transparent;
+    border: 1px solid var(--del-color);
+    color: var(--del-color);
+    border-radius: 4px;
+    transition: 
+        background-color 150ms ease-out,
+        color 250ms ease-out;
+}
+
+.input-wrapper > button:hover {
+    background-color: var(--del-color);
+    color: white;
+    cursor: pointer;
 }

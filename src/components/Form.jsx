@@ -22,7 +22,20 @@ export default function Form({applicant, setApplicant}) {
               studyDate: null
             }
     ]})}
-    
+
+    function removeEdu(eduID) {
+        setApplicant({
+            ...applicant,
+            education: applicant.education.filter(edu => edu.id !== eduID)
+        })
+    }
+
+    function removeExp(expID) {
+        setApplicant({
+            ...applicant,
+            experience: applicant.experience.filter(exp => exp.id !== expID)
+        })
+    }
     return (
         <form 
             onSubmit={
@@ -57,21 +70,62 @@ export default function Form({applicant, setApplicant}) {
                 >
                  </Input>
             </GroupField>
+
             <GroupField text="Educational Experience">
-                <Input label="School Name" id="school"></Input>
-                <Input label="Title of Study" id="study-title"></Input>
-                <Input label="Date of Study" id="study-date" type="date"></Input>
-                <AddButton></AddButton>
+                {applicant.education.map(edu => {
+                    return (
+                        <div className="input-wrapper" key={edu.id}>
+                            {applicant.education.length > 1 && <button onClick={() => removeEdu(edu.id)}>X</button>}
+                            <div>
+                                <Input
+                                label="School Name"
+                                id={`name-${edu.id}`}
+                                handleChange={
+                                    (e) => setApplicant({...applicant, name: e.target.value})
+                                }
+                                >
+                                </Input>
+                                <Input
+                                    label="Title of Study"
+                                    id={`study-title-${edu.id}`}
+                                    handleChange={
+                                        (e) => setApplicant({...applicant, email: e.target.value})
+                                    }
+                                >
+                                </Input>
+                                <Input
+                                    label="Date of Study"
+                                    id={`study-date-${edu.id}`}
+                                    type="date"
+                                    handleChange={
+                                        (e) => setApplicant({...applicant, phoneNo: e.target.value})
+                                    }
+                                >
+                                </Input>
+                            </div>
+                        </div>
+                )})}
+                <AddButton handleClick={addEducation}></AddButton>
             </GroupField>
             
             {
-                applicant.experience === "none" ? 
-                <AddButton text="Add Experience"></AddButton> :
+                applicant.experience.length === 0 ? 
+                <AddButton text="Add Experience" handleClick={addExperience}></AddButton> :
                 <GroupField text="Practical Experience">
-                    <Input label="Company Name" id="company-name"></Input>
-                    <Input label="Position Title" id="position"></Input>
-                    <Input label="From" id="work-start-date" type="date"></Input>
-                    <Input label="To" id="work-end-date" type="date"></Input>
+                    {applicant.experience.map(exp => {
+                        return (
+                            <div className="input-wrapper" key={exp.id}>
+                                {<button onClick={() => removeExp(exp.id)}>X</button>}
+                                <div>
+                                    <Input label="Company Name" id={`company-name-${exp.id}`}></Input>
+                                    <Input label="Position Title" id={`position-${exp.id}`}></Input>
+                                    <Input label="From" id={`work-start-date-${exp.id}`} type="date"></Input>
+                                    <Input label="To" id={`work-end-date-${exp.id}`} type="date"></Input>
+                                    
+                                </div>
+                            </div>
+                    )})}
+                    <AddButton handleClick={addExperience}></AddButton>
                 </GroupField>
             }
 
