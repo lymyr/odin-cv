@@ -58,6 +58,8 @@ h1, h2, h3, h4, h5, h6 {
 
   --main-color: rgb(80, 57, 75);
   --main-text-color: rgb(238, 231, 237);
+  --accent-color: rgb(123, 119, 83);
+  --accent-text-color: rgb(232, 230, 213);
   --form-gap: 16px;
   --field-set-gap: 12px;
   --input-label-gap: 4px;

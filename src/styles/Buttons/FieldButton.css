@@ -1,0 +1,8 @@
+.field-button {
+    background-color: var(--accent-color);
+    color: var(--accent-text-color);
+    width: fit-content;
+    padding: 8px 24px;
+    border-radius: 8px;
+    margin: auto;
+}
