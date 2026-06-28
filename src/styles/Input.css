@@ -1,0 +1,9 @@
+.input-label {
+    display: flex;
+    flex-direction: column;
+    gap: var(--input-label-gap);
+}
+
+.input-label input {
+    max-width: 30%;
+}
