@@ -2,7 +2,6 @@ import GroupField from "./GroupField.jsx";
 import Input from "./Input";
 import AddButton from "./Buttons/AddButton.jsx";
 import "../styles/Form.css"
-import "../styles/Input.css"
 import { useState } from "react";
 
 export default function Form({applicant, setApplicant}) {
@@ -107,6 +106,7 @@ export default function Form({applicant, setApplicant}) {
                                 </Input>
                             </div>
                         </div>
+                        
                 )})}
                 <AddButton handleClick={addEducation}></AddButton>
             </GroupField>
@@ -124,7 +124,7 @@ export default function Form({applicant, setApplicant}) {
                                     <Input label="Position Title" id={`position-${exp.id}`}></Input>
                                     <div className="input-label">
                                         <label htmlFor={`responsibilities-${exp.id}`}>Responsibilities</label>
-                                        <textarea id={`responsibilities-${exp.id}`}></textarea>
+                                        <textarea wrap='soft' id={`responsibilities-${exp.id}`} placeholder="Separate using 'enter' or new line"></textarea>
                                     </div>
                                     <Input label="From" id={`work-start-date-${exp.id}`} type="date"></Input>
                                     <Input label="To" id={`work-end-date-${exp.id}`} type="date"></Input>

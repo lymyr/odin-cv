@@ -1,4 +1,4 @@
-import "../styles/Input.css"
+import "../styles/Form.css"
 
 export default function Input({label="", type="text", id, handleChange=()=>{}}) {
     return (

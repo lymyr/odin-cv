@@ -1,4 +1,4 @@
-import "../styles/GroupField.css"
+import "../styles/Form.css"
 export default function GroupField({text="", children}) {
     return (
         <fieldset>

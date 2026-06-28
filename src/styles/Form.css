@@ -1,17 +1,31 @@
 form {
+    --del-color: red;
+    --del-button-size: 32px;
+    --form-gap: 16px;
+    --field-set-gap: 12px;
+    --input-label-gap: 4px;
+    --input-wrapper-gap: 24px;
+
     display: flex;
     flex-direction: column;
     gap: var(--form-gap);
     padding: 32px var(--inline-space);
+    align-items: center;
 
-    --del-color: red;
-    --del-button-size: 32px;
+}
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: var(--field-set-gap);
+    width: 100%;
+    max-width: 600px;
 }
 
 .input-wrapper {
     display:grid;
-    grid-template-columns: var(--del-button-size) 100%;
-    gap: 24px;
+    grid-template-columns: var(--del-button-size) 1fr;
+    gap: var(--input-wrapper-gap);
     align-items: center;
 }
 
@@ -34,4 +48,37 @@ form {
     background-color: var(--del-color);
     color: white;
     cursor: pointer;
+}
+
+.input-label {
+    display: flex;
+    flex-direction: column;
+    gap: var(--input-label-gap);
+}
+
+.input-label textarea {
+    width: 100%;
+    resize: vertical;
+}
+
+.field-button {
+    background-color: var(--accent-color);
+    color: var(--accent-text-color);
+    width: fit-content;
+    padding: 8px 24px;
+    border-radius: 8px;
+    margin: auto;
+}
+
+@media screen and (min-width: 600px) {
+    fieldset:not(:has(.input-wrapper)) > *:not(legend) {
+        margin-left: calc(var(--input-wrapper-gap) + var(--del-button-size));
+    }
+    fieldset {
+        max-width: 100%;
+    }
+
+    .input-label {
+        max-width: 500px;
+    }
 }
