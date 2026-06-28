@@ -4,6 +4,8 @@
     gap: var(--input-label-gap);
 }
 
+.input-label textarea,
 .input-label input {
     max-width: 30%;
 }
+

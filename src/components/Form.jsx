@@ -2,6 +2,7 @@ import GroupField from "./GroupField.jsx";
 import Input from "./Input";
 import AddButton from "./Buttons/AddButton.jsx";
 import "../styles/Form.css"
+import "../styles/Input.css"
 import { useState } from "react";
 
 export default function Form({applicant, setApplicant}) {
@@ -17,9 +18,11 @@ export default function Form({applicant, setApplicant}) {
     function addExperience() {
         setApplicant({...applicant, experience: [...applicant.experience, {
               id: crypto.randomUUID(),
-              schoolName: null,
-              studyTitle: null,
-              studyDate: null
+              companyName: null,
+              position: null,
+              responsibilities: [],
+              fromDate: null,
+              toDate: null
             }
     ]})}
 
@@ -119,6 +122,10 @@ export default function Form({applicant, setApplicant}) {
                                 <div>
                                     <Input label="Company Name" id={`company-name-${exp.id}`}></Input>
                                     <Input label="Position Title" id={`position-${exp.id}`}></Input>
+                                    <div className="input-label">
+                                        <label htmlFor={`responsibilities-${exp.id}`}>Responsibilities</label>
+                                        <textarea id={`responsibilities-${exp.id}`}></textarea>
+                                    </div>
                                     <Input label="From" id={`work-start-date-${exp.id}`} type="date"></Input>
                                     <Input label="To" id={`work-end-date-${exp.id}`} type="date"></Input>
                                     
