@@ -1,11 +1,21 @@
 import "../styles/Header.css"
 
-export default function Header({handleClick=()=>{}}) {
+export default function Header({userStatus, setUserStatus}) {
+    function handleClick() {
+        if (userStatus === 'typing') {
+            setUserStatus('viewing')
+            btnTxt = "Edit"
+        }
+        else 
+            setUserStatus('typing');
+        
+    }
+
     return (
         <header>
             <div>
                 <h1>Odin CV</h1>
-                <button onClick={handleClick}>Submit</button>
+                <button onClick={handleClick}>{userStatus === 'typing' ? 'Submit' : 'Edit'}</button>
             </div>
         </header>
     )   

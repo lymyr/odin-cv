@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import Header from './components/Header.jsx'
 import Form from './components/Form.jsx'
+import Output from './components/Output.jsx';
 
 function App() {
   const [applicant, setApplicant] = useState({
@@ -19,14 +20,20 @@ function App() {
       experience: []
   });
 
+  const [userStatus, setUserStatus] = useState('typing');
+
   return (
     <>
-      <Header></Header>
-      <Form 
-        applicant={applicant} 
-        setApplicant={setApplicant}
-      >
-      </Form>
+      <Header userStatus={userStatus} setUserStatus={setUserStatus}></Header>
+      {
+        userStatus === 'typing' ? 
+        <Form 
+          applicant={applicant} 
+          setApplicant={setApplicant}
+        >
+        </Form> :
+        <Output applicant={applicant}></Output>
+      }
     </>
   )
 }

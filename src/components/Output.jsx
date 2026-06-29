@@ -12,8 +12,8 @@ export default function Output({applicant}) {
                 <div className="form-description-wrapper">
                     {applicant.education.map(edu => {
                         return (
-                            <div className="form-description-section">
-                            <div key={edu.id}>
+                            <div className="form-description-section" key={edu.id}>
+                            <div>
                                 <p>{edu.schoolName}</p>
                                 <p>{edu.studyTitle}</p>
                             </div>
@@ -33,15 +33,15 @@ export default function Output({applicant}) {
                         {applicant.experience.map(exp => {
                             return (
                                 <>
-                                <div className="form-description-section">
-                                    <div key={exp.id}>
+                                <div className="form-description-section" key={`main-desc-${exp.id}`}>
+                                    <div>
                                         <p>{exp.companyName}</p>
                                         <p>{exp.position}</p>
                                     </div>
                                     <p>{exp.fromDate} - {exp.toDate}</p>
                                 </div>
-                                <ul>
-                                    {exp.responsibilities.map(r => <li>{r}</li>)}
+                                <ul key={`job-resp-${exp.id}`}>
+                                    {exp.responsibilities.map((r, rI) => <li key={`${rI}-${exp.id}`}>{r}</li>)}
                                 </ul>
                                 </>
                             )
