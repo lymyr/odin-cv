@@ -1,9 +1,12 @@
 import "../styles/Header.css"
 
-export default function Header() {
+export default function Header({handleClick=()=>{}}) {
     return (
         <header>
-            <h1>Odin CV</h1>
+            <div>
+                <h1>Odin CV</h1>
+                <button onClick={handleClick}>Submit</button>
+            </div>
         </header>
-    )
+    )   
 }

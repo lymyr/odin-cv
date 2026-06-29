@@ -21,7 +21,7 @@ fieldset {
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 600px;
+    max-width: var(--content-max-width);
     padding-top: var(--input-wrapper-gap);
     padding-bottom: calc((var(--input-wrapper-gap) + var(--field-set-gap))/2);
     box-shadow: 2px 2px 4px var(--box-shadow-color);
@@ -120,7 +120,7 @@ fieldset .field-button {
 }
 
 
-
+/* should be based off --content-max-width in index.css */
 @media screen and (min-width: 600px) {
     form {
         --del-button-margin-left: 12px;
