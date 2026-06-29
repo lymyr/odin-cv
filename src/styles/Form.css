@@ -1,15 +1,18 @@
 form {
-    --del-color: red;
+    --del-color: rgb(148, 35, 35);
     --del-button-size: 32px;
-    --form-gap: 16px;
-    --field-set-gap: 12px;
+    --form-gap: 24px;
+    --field-set-gap: 48px;
     --input-label-gap: 4px;
-    --input-wrapper-gap: 24px;
+    --input-label-wrapper-gap: 16px;
+    --input-wrapper-gap: 16px;
+    --box-shadow-color: rgb(221, 221, 221);
+    --del-button-margin-left: 0px;
 
     display: flex;
     flex-direction: column;
     gap: var(--form-gap);
-    padding: 32px var(--inline-space);
+    padding: var(--form-gap) var(--inline-space);
     align-items: center;
 
 }
@@ -17,12 +20,33 @@ form {
 fieldset {
     display: flex;
     flex-direction: column;
-    gap: var(--field-set-gap);
     width: 100%;
     max-width: 600px;
+    padding-top: var(--input-wrapper-gap);
+    padding-bottom: calc((var(--input-wrapper-gap) + var(--field-set-gap))/2);
+    box-shadow: 2px 2px 4px var(--box-shadow-color);
+    background-color: white;
+}
+
+legend {
+    padding: 8px 24px;
+    background-color: var(--main-color);
+    color: var(--main-text-color);
+    font-weight: 600;
+    border-radius: 4px;
+    letter-spacing: -0.7px;
+    box-shadow: 1px 1px 4px var(--box-shadow-color);
+}
+fieldset:has(.input-wrapper) {
+    gap: var(--field-set-gap);
+}
+
+fieldset:not(:has(.input-wrapper)) {
+    gap: var(--input-label-wrapper-gap);
 }
 
 .input-wrapper {
+    padding-left: var(--del-button-margin-left);
     display:grid;
     grid-template-columns: var(--del-button-size) 1fr;
     gap: var(--input-wrapper-gap);
@@ -31,6 +55,9 @@ fieldset {
 
 .input-wrapper > div {
     grid-column: 2/3;
+    display: flex;
+    flex-direction: column;
+    gap: var(--input-label-wrapper-gap);
 }
 
 .input-wrapper > button {
@@ -65,26 +92,55 @@ fieldset {
     background-color: var(--accent-color);
     color: var(--accent-text-color);
     width: fit-content;
-    padding: 8px 24px;
-    border-radius: 8px;
+    padding: 4px 24px;
+    border-radius: 4px;
     margin: auto;
+    font-weight: 600;
+    letter-spacing: -1px;
+    border: none;
+    font-size: 1.1rem;
+    box-shadow: 0px 1px 2px var(--box-shadow-color);
+    transition-property: background-color, color, transform, box-shadow;
+    transition-duration: 200ms;
+    transition-timing-function: ease-out;
+}
+
+.field-button:hover {
+    cursor: pointer;
+    background-color: var(--accent-focus-color);
+    color: var(--accent-focus-text-color);
+    transform: scaleX(1.1) scaleY(1.02) translateY(-2px);
+    box-shadow: 0px 6px 12px var(--box-shadow-color);
 }
 
 fieldset .field-button {
     margin: 0;
     margin-left: auto;
+    margin-top: calc(var(--field-set-gap) * -0.5);
 }
 
+
+
 @media screen and (min-width: 600px) {
+    form {
+        --del-button-margin-left: 12px;
+    }
+
     fieldset:not(:has(.input-wrapper)) > *:not(legend) {
-        margin-left: calc(var(--input-wrapper-gap) + var(--del-button-size));
+        margin-left: calc(var(--input-wrapper-gap) + var(--del-button-size) + var(--del-button-margin-left));
     }
 
     .input-label {
         max-width: 500px;
     }
 
-    fieldset .field-button {
-        margin: auto
+    fieldset .field-button,
+    fieldset > *:not(legend) {
+        margin-right: calc(var(--input-wrapper-gap) + var(--del-button-size));
+    }
+
+    .field-button:hover {
+        transform: scaleX(1.2) scaleY(1.1) translateY(-4px);
+        box-shadow: 0px 6px 12px var(--box-shadow-color);
     }
 }

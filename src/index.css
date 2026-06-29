@@ -58,7 +58,13 @@ h1, h2, h3, h4, h5, h6 {
 
   --main-color: rgb(80, 57, 75);
   --main-text-color: rgb(238, 231, 237);
-  --accent-color: rgb(123, 119, 83);
-  --accent-text-color: rgb(232, 230, 213);
+  --accent-color: rgb(229, 189, 87);
+  --accent-focus-color: rgb(255, 203, 73);
+  --accent-text-color: rgb(55, 51, 7);
+  --accent-focus-text-color: rgb(50, 38, 5);
   --inline-space: 24px;
+}
+
+body {
+  background-color: rgb(235, 237, 239);
 }
