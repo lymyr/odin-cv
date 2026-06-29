@@ -79,12 +79,12 @@ fieldset:not(:has(.input-wrapper)) {
 .input-wrapper:has(button) > div {
     transform-origin: center left;
     transition: 
-        opacity 300ms ease-out,
-        transform 500ms ease-out;
+        opacity 250ms ease-out,
+        transform 300ms ease-out;
 }
 .input-wrapper:has(button:hover) > div {
     opacity: 0.67;
-    transform: scale(0.9);
+    transform: scale(0.98);
 }
 
 .input-label {
