@@ -1,4 +1,10 @@
 import "../styles/Output.css"
+import { format } from "date-fns"
+
+function formatDate(date, formatType) {
+    if (date == false) return ""
+    return format(date, formatType);
+}
 
 export default function Output({applicant}) {
     return (
@@ -19,7 +25,7 @@ export default function Output({applicant}) {
                                 <h4>{edu.schoolName}</h4>
                                 <p>{edu.studyTitle}</p>
                             </div>
-                            <p>{edu.studyDate}</p>
+                            <p>{formatDate(edu.studyDate, "MMM yyyy")}</p>
                             </div>
                         )
                     })}
@@ -40,7 +46,7 @@ export default function Output({applicant}) {
                                         <h4>{exp.companyName}</h4>
                                         <p>{exp.position}</p>
                                     </div>
-                                    <p>{exp.fromDate} - {exp.toDate}</p>
+                                    <p>{formatDate(exp.fromDate, "MMM yyyy")} – {formatDate(exp.toDate, "MMM yyyy")}</p>
                                 </div>
                                 <ul>
                                     {exp.responsibilities.map((r, rI) => <li key={`${rI}-${exp.id}`}>{r}</li>)}
