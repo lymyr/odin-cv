@@ -17,7 +17,7 @@ export default function Output({applicant}) {
                                 <p>{edu.schoolName}</p>
                                 <p>{edu.studyTitle}</p>
                             </div>
-                            <p>{edu.studyTitle}</p>
+                            <p>{edu.studyDate}</p>
                             </div>
                         )
                     })}

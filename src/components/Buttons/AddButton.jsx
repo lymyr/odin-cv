@@ -4,7 +4,10 @@ export default function AddButton({text="Add", handleClick=()=>{}, willDel=false
     return (
             <button
                 className={`field-button${willDel ? ' delete' : ""}`}
-                onClick={handleClick}
+                onClick={(e) => {
+                    e.preventDefault()
+                    handleClick()
+                }}
             >
                 {text}
             </button>

@@ -9,20 +9,20 @@ export default function Form({applicant, setApplicant}) {
     function addEducation() {
         setApplicant({...applicant, education: [...applicant.education, {
               id: crypto.randomUUID(),
-              schoolName: null,
-              studyTitle: null,
-              studyDate: null
+              schoolName: "",
+              studyTitle: "",
+              studyDate: ""
             }
     ]})}
 
     function addExperience() {
         setApplicant({...applicant, experience: [...applicant.experience, {
               id: crypto.randomUUID(),
-              companyName: null,
-              position: null,
+              companyName: "",
+              position: "",
               responsibilities: [],
-              fromDate: null,
-              toDate: null
+              fromDate: "",
+              toDate: ""
             }
     ]})}
 
@@ -52,6 +52,7 @@ export default function Form({applicant, setApplicant}) {
                     handleChange={
                         (e) => setApplicant({...applicant, name: e.target.value})
                     }
+                    value={applicant.name}
                 >
                 </Input>
                 <Input 
@@ -61,6 +62,7 @@ export default function Form({applicant, setApplicant}) {
                     handleChange={
                         (e) => setApplicant({...applicant, email: e.target.value})
                     }
+                    value={applicant.email}
                 >
                 </Input>
                 <Input 
@@ -70,6 +72,7 @@ export default function Form({applicant, setApplicant}) {
                     handleChange={
                         (e) => setApplicant({...applicant, phoneNo: e.target.value})
                     }
+                    value={applicant.phoneNo}
                 >
                  </Input>
             </GroupField>
@@ -89,6 +92,7 @@ export default function Form({applicant, setApplicant}) {
                                             newEdu[i] = {...newEdu[i], schoolName: e.target.value}
                                             setApplicant({...applicant, education:newEdu})
                                     }}
+                                    value={applicant.education[i].schoolName}
                                 >
                                 </Input>
                                 <Input
@@ -100,6 +104,7 @@ export default function Form({applicant, setApplicant}) {
                                             newEdu[i] = {...newEdu[i], studyTitle: e.target.value}
                                             setApplicant({...applicant, education:newEdu})
                                     }}
+                                    value={applicant.education[i].studyTitle}
                                 >
                                 </Input>
                                 <Input
@@ -112,6 +117,7 @@ export default function Form({applicant, setApplicant}) {
                                             newEdu[i] = {...newEdu[i], studyDate: e.target.value}
                                             setApplicant({...applicant, education:newEdu})
                                     }}
+                                    value={applicant.education[i].studyDate}
                                 >
                                 </Input>
                             </div>
@@ -139,6 +145,7 @@ export default function Form({applicant, setApplicant}) {
                                                 newExp[i] = {...newExp[i], companyName: e.target.value}
                                                 setApplicant({...applicant, experience:newExp})
                                         }}
+                                        value={applicant.experience[i].companyName}
                                     >
                                     </Input>
                                     <Input 
@@ -150,12 +157,14 @@ export default function Form({applicant, setApplicant}) {
                                                 newExp[i] = {...newExp[i], position: e.target.value}
                                                 setApplicant({...applicant, experience:newExp})
                                         }}
+                                        value={applicant.experience[i].position}
                                     >
                                     </Input>
                                     <div className="input-label">
                                         <label htmlFor={`responsibilities-${exp.id}`}>Responsibilities</label>
                                         <textarea 
                                             wrap='soft' 
+                                            rows={applicant.experience[i].responsibilities.length > 0 ? applicant.experience[i].responsibilities.length: 1}
                                             id={`responsibilities-${exp.id}`} 
                                             placeholder="Separate using 'enter' or new line"
                                             onChange={
@@ -164,6 +173,7 @@ export default function Form({applicant, setApplicant}) {
                                                     newExp[i] = {...newExp[i], responsibilities: e.target.value.split(`\n`)}
                                                     setApplicant({...applicant, experience:newExp})
                                             }}
+                                            value={applicant.experience[i].responsibilities.join(`\n`)}
                                         >
                                         </textarea>
                                     </div>
@@ -177,6 +187,7 @@ export default function Form({applicant, setApplicant}) {
                                                 newExp[i] = {...newExp[i], fromDate: e.target.value}
                                                 setApplicant({...applicant, experience:newExp})
                                         }}
+                                        value={applicant.experience[i].fromDate}
                                     >
                                     </Input>
                                     <Input 
@@ -189,6 +200,7 @@ export default function Form({applicant, setApplicant}) {
                                                 newExp[i] = {...newExp[i], toDate: e.target.value}
                                                 setApplicant({...applicant, experience:newExp})
                                         }}
+                                        value={applicant.experience[i].toDate}
                                     >
                                     </Input>
                                 </div>

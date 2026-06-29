@@ -2,13 +2,7 @@ import "../styles/Header.css"
 
 export default function Header({userStatus, setUserStatus}) {
     function handleClick() {
-        if (userStatus === 'typing') {
-            setUserStatus('viewing')
-            btnTxt = "Edit"
-        }
-        else 
-            setUserStatus('typing');
-        
+        userStatus === 'typing' ? setUserStatus('viewing') : setUserStatus('typing');
     }
 
     return (

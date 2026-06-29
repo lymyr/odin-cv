@@ -6,15 +6,15 @@ import Output from './components/Output.jsx';
 
 function App() {
   const [applicant, setApplicant] = useState({
-      name: null,
-      email: null,
-      phoneNo: null,
+      name: "",
+      email: "",
+      phoneNo: "",
       education: [
           {
               id: crypto.randomUUID(),
-              schoolName: null,
-              studyTitle: null,
-              studyDate: null
+              schoolName: "",
+              studyTitle: "",
+              studyDate: ""
           }
       ],
       experience: []
