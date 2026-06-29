@@ -1,0 +1,33 @@
+.form-info {
+    max-width: var(--content-max-width);
+    display:flex;
+    flex-direction: column;
+    gap:2rem;
+    margin: auto;
+    background-color: white;
+    padding: 48px;
+    margin-top: var(--block-space);
+    box-shadow: 2px 2px 8px var(--box-shadow-color);
+    border-radius: 2px;
+}
+
+.form-header {
+    margin: auto;
+    text-align: center;
+}
+
+.form-title-wrapper {
+    border-bottom: 1px solid black;
+    margin-bottom: 0.5rem;
+}
+
+.form-description-wrapper {
+    display:flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-description-section {
+    display: flex;
+    justify-content: space-between;
+}

@@ -5,7 +5,6 @@ import "../styles/Form.css"
 import { useState } from "react";
 
 export default function Form({applicant, setApplicant}) {
-    console.log(applicant)
     function addEducation() {
         setApplicant({...applicant, education: [...applicant.education, {
               id: crypto.randomUUID(),

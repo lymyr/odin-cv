@@ -1,3 +1,5 @@
+import "../styles/Output.css"
+
 export default function Output({applicant}) {
     return (
         <div className="form-info">
@@ -14,7 +16,7 @@ export default function Output({applicant}) {
                         return (
                             <div className="form-description-section" key={edu.id}>
                             <div>
-                                <p>{edu.schoolName}</p>
+                                <h4>{edu.schoolName}</h4>
                                 <p>{edu.studyTitle}</p>
                             </div>
                             <p>{edu.studyDate}</p>
@@ -35,7 +37,7 @@ export default function Output({applicant}) {
                                 <div key={exp.id}>
                                 <div className="form-description-section">
                                     <div>
-                                        <p>{exp.companyName}</p>
+                                        <h4>{exp.companyName}</h4>
                                         <p>{exp.position}</p>
                                     </div>
                                     <p>{exp.fromDate} - {exp.toDate}</p>

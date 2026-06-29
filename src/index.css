@@ -62,7 +62,9 @@ h1, h2, h3, h4, h5, h6 {
   --accent-focus-color: rgb(255, 203, 73);
   --accent-text-color: rgb(55, 51, 7);
   --accent-focus-text-color: rgb(50, 38, 5);
+  --box-shadow-color: rgb(221, 221, 221);
   --inline-space: 8px;
+  --block-space: 24px;
   --content-max-width: 600px;
 }
 

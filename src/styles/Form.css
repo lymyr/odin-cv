@@ -1,12 +1,11 @@
 form {
     --del-color: rgb(148, 35, 35);
     --del-button-size: 32px;
-    --form-gap: 24px;
+    --form-gap: var(--block-space);
     --field-set-gap: 48px;
     --input-label-gap: 4px;
     --input-label-wrapper-gap: 16px;
     --input-wrapper-gap: 16px;
-    --box-shadow-color: rgb(221, 221, 221);
     --del-button-margin-left: 0px;
 
     display: flex;
