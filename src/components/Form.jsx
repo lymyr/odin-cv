@@ -2,7 +2,6 @@ import GroupField from "./GroupField.jsx";
 import Input from "./Input";
 import AddButton from "./Buttons/AddButton.jsx";
 import "../styles/Form.css"
-import { useState } from "react";
 
 export default function Form({applicant, setApplicant}) {
     function addEducation() {

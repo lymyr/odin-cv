@@ -2,7 +2,7 @@ import "../styles/Header.css"
 
 export default function Header({userStatus, setUserStatus}) {
     function handleClick() {
-        userStatus === 'typing' ? setUserStatus('viewing') : setUserStatus('typing');
+        setUserStatus(userStatus === 'typing' ? 'viewing' : 'typing');
     }
 
     return (
