@@ -1,16 +1,24 @@
-# React + Vite
+# CV Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+## Live Demo
+https://heartfelt-kelpie-b4d4d9.netlify.app/
 
-Currently, two official plugins are available:
+## Learning Process & Technical Implementation
+This project served as a deep dive into React state management and component structure. Rather than scattering state across multiple disjointed components, I focused on centralizing the data and handling complex nested structures. 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Key technical takeaways from this build include:
 
-## React Compiler
+* **Single Source of Truth:** Managed the entire application's data using a single `applicant` state object which holds all form inputs for the CV.
+* **Complex State Arrays & Nested Data:** Implemented logic to allow the `applicant` state to hold multiple entries for both Academic Experience and Practical Experience. A single practical experience entry can also contain an array of multiple distinct job responsibilities.
+* **Conditional Rendering:** Utilized state toggles to switch the UI between form input fields (for editing) and static HTML elements (for the final submitted view).
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
+* **General Information:** Capture name, email, and phone number details.
+* **Educational Experience:** Add multiple schools, titles of study, and date of attendance/graduation.
+* **Practical Experience:** Add multiple jobs, including company name, position title, dates worked, and an array of main responsibilities.
+* **Edit/Submit Toggle:** Users can submit their data to view a simple generated CV layout, and easily switch back to edit mode to update their information.
 
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Technologies Used
+* React (Hooks, State Management, Props)
+* CSS (Custom styling and layout)
+* Vite / Create React App
