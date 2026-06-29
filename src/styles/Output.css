@@ -9,10 +9,10 @@
     margin-top: var(--block-space);
     box-shadow: 2px 2px 8px var(--box-shadow-color);
     border-radius: 2px;
+    min-height: 297mm;
 }
 
 .form-header {
-    margin: auto;
     text-align: center;
 }
 
@@ -30,4 +30,14 @@
 .form-description-section {
     display: flex;
     justify-content: space-between;
+}
+
+.form-description-section > div p {
+    font-style: italic;
+}
+
+@media screen and (max-width:615px) {
+    .form-info {
+        margin-inline: var(--inline-space);
+    }
 }

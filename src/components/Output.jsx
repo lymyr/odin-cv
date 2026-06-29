@@ -11,7 +11,7 @@ export default function Output({applicant}) {
         <div className="form-info">
             <div className="form-header form-section">
                 <h2>{applicant.name}</h2>
-                <p>{applicant.email} | {applicant.phoneNo}</p>
+                <p>{applicant.email} {applicant.email != "" && applicant.phoneNo != "" ? "|" : ""} {applicant.phoneNo}</p>
             </div>
             <div className="form-section">
                 <div className="form-title-wrapper">
@@ -46,10 +46,12 @@ export default function Output({applicant}) {
                                         <h4>{exp.companyName}</h4>
                                         <p>{exp.position}</p>
                                     </div>
-                                    <p>{formatDate(exp.fromDate, "MMM yyyy")} – {formatDate(exp.toDate, "MMM yyyy")}</p>
+                                    <p>{formatDate(exp.fromDate, "MMM yyyy")} {exp.fromDate !="" && exp.toDate !="" ? "–" : ""} {formatDate(exp.toDate, "MMM yyyy")}</p>
                                 </div>
                                 <ul>
-                                    {exp.responsibilities.map((r, rI) => <li key={`${rI}-${exp.id}`}>{r}</li>)}
+                                    {exp.responsibilities.map((r, rI) => {
+                                        if (r != "") return <li key={`${rI}-${exp.id}`}>{r}</li>
+                                    })}
                                 </ul>
                                 </div>
                             )
